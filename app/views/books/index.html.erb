@@ -1,4 +1,4 @@
-<div class='container'>
+<div class='flex'>
   <div class = 'self_info'>
 <div class='container px-5 px-sm-0'>
 <h2>User info</h2>  
@@ -41,7 +41,7 @@
 </div>
 </div>
 
-
+<div class = 'tables'>
 <div class='col-md-8 offset-md-1'>
 <h2>Book</h2>
 <table class='table table-hover table-inverse'>
@@ -56,14 +56,13 @@
   <tbody>
 <% @books.each do |list| %>
   <tr>
-      <td><%= list.title %></td>
+      <td><%=link_to list.title, "/books/#{list.id}" %></td>
       <td><%= list.body %></td>
-      <td class="button"><%= link_to "Edit",  "/books/#{list.id}" %></td>
-      <td class="button"><%= link_to "Destroy", "/books/#{list.id}", method: :delete, "data-confirm" => "Are you sure?" %></td>
   </tr>
 <% end %>
   </tbody>
 </table>
+</div>
 </div>
 </div>
 

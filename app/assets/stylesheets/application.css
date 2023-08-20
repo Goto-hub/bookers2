@@ -23,7 +23,7 @@ header .headline {
 }
 
 h2 {
-  margin: 10px auto 0;
+  margin: 10px  0;
   font-size: 20px;
 }
 
@@ -34,7 +34,7 @@ h5,th {
 
 
 nav {
-  width: 880px;
+ /* width: 880px;*/
   margin: 0 auto;
   border-top: solid 0.7px #000000;
   border-bottom: solid 0.7px #000000;
@@ -86,7 +86,7 @@ body {
 }
 
 main {
-  width: 880px;
+  /*width: 880px;*/
   margin: 0 auto;
 }
 
@@ -154,6 +154,12 @@ main {
 
 .tables {
   width: auto;
+}
+
+.flex {
+   display: flex;
+   flex-wrap: wrap;
+   width: auto;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
