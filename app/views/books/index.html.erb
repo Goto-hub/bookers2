@@ -1,6 +1,6 @@
-<div class='flex'>
-  <div class = 'self_info'>
 <div class='container px-5 px-sm-0'>
+<div class = "row">
+<div class ="col-md-3">
 <h2>User info</h2>  
 <div>
 <!-- ユーザーの詳細 -->
@@ -16,7 +16,11 @@
   <th><%= @user.introduction %></th>
   </tr>
 </table>
-  <p><%= link_to "プロフィール編集", edit_user_path(@user.id)%></p>
+  <p>
+              <%= link_to edit_user_path(@user.id), class: 'btn-block' do%>
+              <i class="fa-solid fa-user-gear" style="color: #687487;"></i>
+              <% end %>
+  </p>
 </div>
 
 <h2>New book</h2>
@@ -39,7 +43,9 @@
   <%= f.submit 'Create Book' %>
 <% end %>
 </div>
-</div>
+
+
+<div class='col-md-8 offset-md-1'>
 
 <div class = 'tables'>
 <div class='col-md-8 offset-md-1'>
@@ -56,12 +62,15 @@
   <tbody>
 <% @books.each do |list| %>
   <tr>
+      <td><%=image_tag list.user.get_profile_image(100,100)  %></td>
       <td><%=link_to list.title, "/books/#{list.id}" %></td>
       <td><%= list.body %></td>
   </tr>
 <% end %>
   </tbody>
 </table>
+</div>
+</div>
 </div>
 </div>
 </div>

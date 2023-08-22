@@ -2,9 +2,6 @@ class BooksController < ApplicationController
    #アクセス制限
   before_action :is_matching_login_user, only: [:edit, :update]
   
-  def new
-    @book = Book.new
-  end
   
   # 投稿データの保存
   def create
@@ -14,12 +11,15 @@ class BooksController < ApplicationController
       flash[:notice] = "Book was successfully created."
       redirect_to books_path(:id)
     else
+      @user = current_user
+      @books = Book.page(params[:page])
       flash[:alert] = "error:Failed to create. Fill in the blanks."
-      render :new
+      render :index
     end
   end
 
   def index
+    @users = User.page(params[:page])
     @books = Book.page(params[:page])
     @user = current_user
     @book = Book.new

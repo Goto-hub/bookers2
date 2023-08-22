@@ -3,7 +3,7 @@ devise_for :users
 root to: "homes#top", as: "top"
 get "home/about" => "homes#about", as: "about"
 
-resources :books, only: [:new, :create, :index, :show, :edit, :destroy, :update] do
+resources :books, only: [:create, :index, :show, :edit, :destroy, :update] do
   resource :favorites, only: [:create, :destroy]
   resources :book_comments, only: [:create, :destroy]
 end

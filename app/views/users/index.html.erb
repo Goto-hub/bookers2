@@ -1,8 +1,6 @@
-
-<div class='container'>
-
-<div class = 'self_info'>
 <div class='container px-5 px-sm-0'>
+<div class = "row">
+<div class ="col-md-3">  
 <h2>User info</h2>  
 <div>
 <!-- ユーザーの詳細 -->
@@ -18,7 +16,11 @@
   <th><%= @user.introduction %></th>
   </tr>
 </table>
-  <p><%= link_to "プロフィール編集", edit_user_path(@user.id)%></p>
+  <p>
+              <%= link_to edit_user_path(@user.id), class: 'btn-block' do%>
+              <i class="fa-solid fa-user-gear" style="color: #687487;"></i>
+              <% end %>
+  </p>
 </div>
 
 <h2>New book</h2>
@@ -41,9 +43,7 @@
   <%= f.submit 'Create Book' %>
 <% end %>
 </div>
-</div>
 
-<div class = 'tables'>
 <div class='col-md-8 offset-md-1'>
 <h2>Users</h2>
 <table class='table table-hover table-inverse'>
@@ -58,10 +58,11 @@
   <tbody>
 <% @users.each do |list| %>
   <tr>
+    <% if list != @user %> 
       <td><%=image_tag list.get_profile_image(100,100) %></td>
       <td><%= list.name %></td>
       <td class="button"><%= link_to "Show",  "/users/#{list.id}" %></td>
-      
+    <% end %>  
   </tr>
 <% end %>
   </tbody>

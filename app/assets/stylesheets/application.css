@@ -161,6 +161,19 @@ main {
    flex-wrap: wrap;
    width: auto;
 }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.button-block {
+  width: auto;
+}
+
+fa-solid fa-user-gear {
+  position: center;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

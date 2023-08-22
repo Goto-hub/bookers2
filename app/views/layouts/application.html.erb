@@ -25,37 +25,53 @@
           
       <% if user_signed_in? %>
         <li>
+          <%= link_to user_path(current_user.id), class: 'head_button' do%>
           <i class="fa-solid fa-house"></i>
-          <%= link_to 'Home', user_path(current_user.id), class: 'head_button'%>
+          Home
+          <% end %>
         </li>
         <li>
+          <%= link_to users_path, class: 'head_button' do%>
           <i class="fa-solid fa-users"></i>
-          <%= link_to 'Users', users_path, class: 'head_button'%>
+          Users
+          <% end %>
         </li>
         <li>
+          <%= link_to books_path, class: 'head_button' do%>
           <i class="fa-solid fa-book-open"></i>
-          <%= link_to 'Books', books_path, class: 'head_button' %>
+          Books
+          <% end %>
         </li>
         <li>
+          <%= link_to destroy_user_session_path, method: :delete, class: 'head_button' do %>
           <i class="fa-solid fa-right-from-bracket"></i>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'head_button' %>
+          Log out
+          <% end %>
         </li>
       <% else %>
         <li>
+          <%= link_to "/" , class: 'head_button' do%>
           <i class="fa-solid fa-house"></i>
-          <%= link_to 'Home', "/" , class: 'head_button'%>
+          Home
+          <% end %>
         </li>
         <li>
+          <%= link_to "/home/about", class: 'head_button' do %>
           <i class="fa-solid fa-link"></i>
-          <%= link_to 'About', "/home/about", class: 'head_button' %>
+          About
+          <% end %>
         </li>
         <li>
+          <%= link_to new_user_registration_path, class: 'head_button' do %>
           <i class="fa-solid fa-user-plus"></i>
-          <%= link_to "Sign Up", new_user_registration_path, class: 'head_button' %>
+          Sign up
+          <% end %>
         </li>
         <li>
+          <%= link_to new_user_session_path, class: 'head_button' do %>
           <i class="fa-solid fa-right-to-bracket"></i>
-          <%= link_to "Log in", new_user_session_path, class: 'head_button' %>
+          Log in
+          <% end %>
         </li>
       </ul>
       </div>

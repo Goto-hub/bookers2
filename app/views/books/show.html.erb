@@ -1,12 +1,11 @@
-<div class='container'>
-  <div class = 'self_info'>
-<div class='container px-5 px-sm-0'>
-<h2>User info</h2>  
-<div>
-<!-- ユーザーの詳細 -->
-<table class = 'table'>
 
-  <tr><%= image_tag @books.user.get_profile_image(100,100) %></tr>
+<div class='container px-5 px-sm-0'>
+<div class = "row">
+<div class ="col-md-3">
+<h2>User info</h2>  
+<!-- ユーザーの詳細 -->
+<%= image_tag @books.user.get_profile_image(100,100) %>
+<table class = 'table'>
   <tr>
   <th>name</th>
   <th><%= @books.user.name %></th>
@@ -16,8 +15,11 @@
   <th><%= @books.user.introduction %></th>
   </tr>
 </table>
-  <p><%= link_to "プロフィール編集", edit_user_path(@user.id)%></p>
-</div>
+  <p>
+              <%= link_to edit_user_path(@user.id), class: 'btn-block' do%>
+              <i class="fa-solid fa-user-gear" style="color: #687487;"></i>
+              <% end %>
+  </p>
 
 <h2>New book</h2>
 
@@ -39,8 +41,6 @@
   <%= f.submit 'Create Book' %>
 <% end %>
 </div>
-</div>
-  
   
   <div class='col-md-8 offset-md-1'>
 <h2>Book detail</h2>
@@ -62,7 +62,7 @@
   </tr>
   </tbody>
 </table>
-</div>
+
   
   
   <% if @books.favorited_by?(current_user) %>
@@ -78,8 +78,6 @@
       <% end %>
     </p>
   <% end %>
-</div>
-
 
 <div>
   <p>コメント件数：<%= @books.book_comments.count %></p>
@@ -97,4 +95,7 @@
     <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
     <%= f.submit "送信する" %>
   <% end %>
+</div>
+</div>
+</div>
 </div>
