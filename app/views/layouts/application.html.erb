@@ -25,50 +25,50 @@
           
       <% if user_signed_in? %>
         <li>
-          <%= link_to user_path(current_user.id), class: 'head_button' do%>
+          <%= link_to user_path(current_user.id), class: 'btn-block' do%>
           <i class="fa-solid fa-house"></i>
           Home
           <% end %>
         </li>
         <li>
-          <%= link_to users_path, class: 'head_button' do%>
+          <%= link_to users_path, class: 'btn-block' do%>
           <i class="fa-solid fa-users"></i>
           Users
           <% end %>
         </li>
         <li>
-          <%= link_to books_path, class: 'head_button' do%>
+          <%= link_to books_path, class: 'btn-block' do%>
           <i class="fa-solid fa-book-open"></i>
           Books
           <% end %>
         </li>
         <li>
-          <%= link_to destroy_user_session_path, method: :delete, class: 'head_button' do %>
+          <%= link_to destroy_user_session_path, method: :delete, class: 'btn-block' do %>
           <i class="fa-solid fa-right-from-bracket"></i>
           Log out
           <% end %>
         </li>
       <% else %>
         <li>
-          <%= link_to "/" , class: 'head_button' do%>
+          <%= link_to "/" , class: 'btn-block' do%>
           <i class="fa-solid fa-house"></i>
           Home
           <% end %>
         </li>
         <li>
-          <%= link_to "/home/about", class: 'head_button' do %>
+          <%= link_to "/home/about", class: 'btn-block' do %>
           <i class="fa-solid fa-link"></i>
           About
           <% end %>
         </li>
         <li>
-          <%= link_to new_user_registration_path, class: 'head_button' do %>
+          <%= link_to new_user_registration_path, class: 'btn-block' do %>
           <i class="fa-solid fa-user-plus"></i>
           Sign up
           <% end %>
         </li>
         <li>
-          <%= link_to new_user_session_path, class: 'head_button' do %>
+          <%= link_to new_user_session_path, class: 'btn-block' do %>
           <i class="fa-solid fa-right-to-bracket"></i>
           Log in
           <% end %>

@@ -62,9 +62,11 @@
   <tbody>
 <% @books.each do |list| %>
   <tr>
+    <%=link_to "/users/#{list.user}" do %>
       <td><%=image_tag list.user.get_profile_image(100,100)  %></td>
       <td><%=link_to list.title, "/books/#{list.id}" %></td>
       <td><%= list.body %></td>
+    <% end %>  
   </tr>
 <% end %>
   </tbody>

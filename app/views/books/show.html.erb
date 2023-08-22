@@ -56,7 +56,7 @@
       </td>
       <td><%= @books.body %></td>
       <% if @user == @books.user %>
-      <td class="button"><%= link_to "Edit",  "/books/#{@books.id}/edit" %></td>
+      <td class="button"><%= link_to "Edit",  edit_book_path(@books.id) %></td>
       <td class="button"><%= link_to "Destroy", "/books/#{@books.id}", method: :delete, "data-confirm" => "Are you sure?" %></td>
       <% end %>
   </tr>

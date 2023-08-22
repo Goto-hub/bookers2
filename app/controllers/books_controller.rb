@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
    #アクセス制限
-  before_action :is_matching_login_user, only: [:edit, :update]
+  before_action :is_matching_login_user, only: [:edit, :update, :destroy]
   
   
   # 投稿データの保存
@@ -9,7 +9,7 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     if @book.save
       flash[:notice] = "Book was successfully created."
-      redirect_to books_path(:id)
+      redirect_to "/books/#{@book.id}"
     else
       @user = current_user
       @books = Book.page(params[:page])
@@ -46,7 +46,7 @@ class BooksController < ApplicationController
   
   def update
     @book = Book.find(params[:id])
-    if @book.update(list_params)
+    if @book.update(book_params)
       # フラッシュメッセージを定義し、indexへリダイレクト
        flash[:notice] = "Book was successfully updated."
        redirect_to book_path(@book.id)  
@@ -68,8 +68,8 @@ class BooksController < ApplicationController
   
    # アクセス制限
   def is_matching_login_user
-    user = Book.find(params[:user_id])
-    unless user.id == current_user.id
+    book = Book.find(params[:id])
+    unless book.user.id == current_user.id
       redirect_to books_path
     end
   end
